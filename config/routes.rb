@@ -1,14 +1,18 @@
 Mysite::Application.routes.draw do
-  get "static_pages/home"
+  get "users/new"
+  match '/signup',  to: 'users#new'
 
-  get "static_pages/help"
 
-  get "static_pages/about_us"
 
+  root to: 'static_pages#home'
   resources :microposts
 
   resources :users
 
+  match '/help',    to: 'static_pages#help'
+  match '/about_us',   to: 'static_pages#about_us'
+  match '/contact', to: 'static_pages#contact'  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
